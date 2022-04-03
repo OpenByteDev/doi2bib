@@ -1,0 +1,21 @@
+[package]
+name = "doi2bib"
+version = "0.1.0"
+description = "Generate a bibtex entry from a doi."
+readme = "README.md"
+repository = "https://github.com/OpenByteDev/doi2bib" 
+homepage = "https://github.com/OpenByteDev/doi2bib"
+documentation = "https://docs.rs/doi2bib"
+license = "MIT"
+authors = ["OpenByte <development.openbyte@gmail.com>"]
+edition = "2021"
+categories = []
+keywords = ["doi", "bibtex", "bibliography", "biblatex"]
+
+[dependencies]
+reqwest = "0.11"
+regex = "1.5"
+
+[dev-dependencies]
+tokio = { version = "1.17", features = ["macros", "rt"] }
+biblatex = "0.5"

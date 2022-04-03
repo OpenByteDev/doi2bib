@@ -1,10 +1,8 @@
-#![feature(once_cell)]
-
-use std::lazy::SyncLazy;
+use once_cell::sync::Lazy;
 use regex::Regex;
 use reqwest::header;
 
-static DOI_PATTERN: SyncLazy<Regex> = SyncLazy::new(|| {
+static DOI_PATTERN: Lazy<Regex> = Lazy::new(|| {
     Regex::new("\\b(10[.][0-9]{3,}(?:[.][0-9]+)*/\\S+)\\b").unwrap()
 });
 

@@ -14,7 +14,7 @@ keywords = ["doi", "bibtex", "bibliography", "biblatex"]
 
 [dependencies]
 reqwest = "0.11"
-regex = "1.5"
+regex = "1.5.5"
 
 [dev-dependencies]
 tokio = { version = "1.17", features = ["macros", "rt"] }

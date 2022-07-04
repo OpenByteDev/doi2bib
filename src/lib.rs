@@ -2,9 +2,8 @@ use once_cell::sync::Lazy;
 use regex::Regex;
 use reqwest::header;
 
-static DOI_PATTERN: Lazy<Regex> = Lazy::new(|| {
-    Regex::new("\\b(10[.][0-9]{3,}(?:[.][0-9]+)*/\\S+)\\b").unwrap()
-});
+static DOI_PATTERN: Lazy<Regex> =
+    Lazy::new(|| Regex::new("\\b(10[.][0-9]{3,}(?:[.][0-9]+)*/\\S+)\\b").unwrap());
 
 pub struct Doi2Bib {
     client: reqwest::Client,
@@ -13,21 +12,26 @@ pub struct Doi2Bib {
 impl Doi2Bib {
     pub fn new() -> Result<Self, Error> {
         let mut headers = header::HeaderMap::new();
-        headers.insert("Accept", header::HeaderValue::from_static("application/x-bibtex"));
+        headers.insert(
+            "Accept",
+            header::HeaderValue::from_static("application/x-bibtex"),
+        );
 
-        
         let client = reqwest::Client::builder()
-            .user_agent(concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION")))
+            .user_agent(concat!(
+                env!("CARGO_PKG_NAME"),
+                "/",
+                env!("CARGO_PKG_VERSION")
+            ))
             .default_headers(headers)
             .build()?;
 
-        Ok(Doi2Bib {
-            client
-        })
+        Ok(Doi2Bib { client })
     }
 
     pub async fn resolve_doi(&self, doi: &str) -> Result<String, Error> {
-        self.resolve_doi_url(&format!("https://doi.org/{}", doi)).await
+        self.resolve_doi_url(&format!("https://doi.org/{}", doi))
+            .await
     }
 
     pub async fn resolve_doi_url(&self, doi_url: &str) -> Result<String, Error> {
@@ -41,8 +45,8 @@ impl Doi2Bib {
                 let doi = &text[m.start()..m.end()];
                 let response = self.resolve_doi(doi).await?;
                 Ok(Some(response))
-            },
-            None => Ok(None)
+            }
+            None => Ok(None),
         }
     }
 }
@@ -61,7 +65,14 @@ mod tests {
         assert_eq!(bib.len(), 1);
         let entry = bib.into_iter().next().unwrap();
         assert_eq!(entry.doi(), Some("10.1109/5.771073".to_string()));
-        assert_eq!(entry.title(), Some(&[biblatex::Chunk::Normal("Toward unique identifiers".to_string())][..]));
+        assert_eq!(
+            entry.title(),
+            Some(
+                &[biblatex::Chunk::Normal(
+                    "Toward unique identifiers".to_string()
+                )][..]
+            )
+        );
     }
 
     #[test]
@@ -78,7 +89,7 @@ mod tests {
             "10.1038/ejcn.2010.73",
             "10.1038/ejcn.2010.73",
             "10.1000/123456",
-            "10.1038/issn.1476-4687"
+            "10.1038/issn.1476-4687",
         ];
         for doi in dois.iter() {
             assert!(DOI_PATTERN.is_match(doi));

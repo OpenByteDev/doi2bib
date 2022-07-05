@@ -56,6 +56,7 @@ pub type Error = reqwest::Error;
 #[cfg(test)]
 mod tests {
     use super::*;
+    use biblatex::ChunksExt;
 
     #[tokio::test]
     async fn test_resolve() {
@@ -64,14 +65,10 @@ mod tests {
         let bib = biblatex::Bibliography::parse(&bibtex).unwrap();
         assert_eq!(bib.len(), 1);
         let entry = bib.into_iter().next().unwrap();
-        assert_eq!(entry.doi(), Some("10.1109/5.771073".to_string()));
+        assert_eq!(entry.doi().ok(), Some("10.1109/5.771073".to_string()));
         assert_eq!(
-            entry.title(),
-            Some(
-                &[biblatex::Chunk::Normal(
-                    "Toward unique identifiers".to_string()
-                )][..]
-            )
+            entry.title().ok().map(|c| c.format_verbatim()),
+            Some("Toward unique identifiers".to_string())
         );
     }
 

@@ -31,7 +31,7 @@ impl Doi2Bib {
     }
 
     pub async fn resolve_doi_url(&self, doi_url: &str) -> Result<String, Error> {
-        let response = self.client.get(doi_url).send().await?.text().await?;
+        let response = self.client.get(doi_url).send().await?.error_for_status()?.text().await?;
         Ok(response)
     }
 

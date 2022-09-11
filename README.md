@@ -1,10 +1,6 @@
 # doi2bib
 
-[![CI](https://github.com/OpenByteDev/doi2bib/actions/workflows/ci.yml/badge.svg)](https://github.com/OpenByteDev/doi2bib/actions/workflows/ci.yml)
-[![crates.io](https://img.shields.io/crates/v/doi2bib.svg)](https://crates.io/crates/doi2bib)
-[![Documentation](https://docs.rs/doi2bib/badge.svg)](https://docs.rs/doi2bib)
-[![dependency status](https://deps.rs/repo/github/openbytedev/doi2bib/status.svg)](https://deps.rs/repo/github/openbytedev/doi2bib)
-[![MIT](https://img.shields.io/crates/l/doi2bib.svg)](https://github.com/OpenByteDev/doi2bib/blob/master/LICENSE)
+[![CI](https://github.com/OpenByteDev/doi2bib/actions/workflows/ci.yml/badge.svg)](https://github.com/OpenByteDev/doi2bib/actions/workflows/ci.yml) [![crates.io](https://img.shields.io/crates/v/doi2bib.svg)](https://crates.io/crates/doi2bib) [![Documentation](https://docs.rs/doi2bib/badge.svg)](https://docs.rs/doi2bib) [![dependency status](https://deps.rs/repo/github/openbytedev/doi2bib/status.svg)](https://deps.rs/repo/github/openbytedev/doi2bib) [![MIT](https://img.shields.io/crates/l/doi2bib.svg)](https://github.com/OpenByteDev/doi2bib/blob/master/LICENSE)
 
 Generate a bibtex entry from a doi.
 

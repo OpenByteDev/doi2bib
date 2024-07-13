@@ -19,4 +19,4 @@ once_cell = "1.18"
 
 [dev-dependencies]
 tokio = { version = "1.28", features = ["macros", "rt"] }
-biblatex = "0.8"
+biblatex = "0.9"

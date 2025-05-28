@@ -10,18 +10,19 @@ Generate a bibtex entry from a doi.
 let doi2bib = doi2bib::Doi2Bib::new().unwrap();
 let bibtex = doi2bib.resolve_doi("10.1109/5.771073").await.unwrap();
 println!("{}", bibtex);
-// @article{Yu_2013,
-//     doi = {10.1038/nature12097},
-//     url = {https://doi.org/10.1038%2Fnature12097},
-//     year = 2013,
-//     month = {apr},
-//     publisher = {Springer Science and Business Media {LLC}},
-//     volume = {497},
-//     number = {7448},
-//     pages = {196--197},
-//     author = {Shannon F. Yu and Mary K. Baylies},
-//     title = {Death brings new life to muscle},
-//     journal = {Nature}
+// @article{Paskin_1999, 
+//     title={Toward unique identifiers},
+//     volume={87},
+//     ISSN={0018-9219}, 
+//     url={http://dx.doi.org/10.1109/5.771073},
+//     DOI={10.1109/5.771073},
+//     number={7},
+//     journal={Proceedings of the IEEE},
+//     publisher={Institute of Electrical and Electronics Engineers (IEEE)},
+//     author={Paskin, N.},
+//     year={1999},
+//     month=jul,
+//     pages={1208–1227}
 // }
 ```
 

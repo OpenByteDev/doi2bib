@@ -30,7 +30,7 @@ impl Doi2Bib {
     }
 
     pub async fn resolve_doi(&self, doi: &str) -> Result<String, Error> {
-        self.resolve_doi_url(&format!("https://doi.org/{}", doi))
+        self.resolve_doi_url(&format!("https://doi.org/{doi}"))
             .await
     }
 

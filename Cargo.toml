@@ -17,5 +17,5 @@ reqwest = "0.12"
 regex = "1.11"
 
 [dev-dependencies]
-tokio = { version = "1.45", features = ["macros", "rt"] }
+tokio = { version = "1.46", features = ["macros", "rt"] }
 biblatex = "0.10"

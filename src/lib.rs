@@ -1,9 +1,9 @@
-use once_cell::sync::Lazy;
+use std::sync::LazyLock;
 use regex::Regex;
 use reqwest::header;
 
-static DOI_PATTERN: Lazy<Regex> =
-    Lazy::new(|| Regex::new("\\b(10[.][0-9]{3,}(?:[.][0-9]+)*/\\S+)\\b").unwrap());
+static DOI_PATTERN: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new("\\b(10[.][0-9]{3,}(?:[.][0-9]+)*/\\S+)\\b").unwrap());
 
 pub struct Doi2Bib {
     client: reqwest::Client,

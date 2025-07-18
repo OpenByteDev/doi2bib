@@ -1,6 +1,6 @@
 [package]
 name = "doi2bib"
-version = "0.2.1"
+version = "0.2.2"
 description = "Generate a bibtex entry from a doi."
 readme = "README.md"
 repository = "https://github.com/OpenByteDev/doi2bib" 

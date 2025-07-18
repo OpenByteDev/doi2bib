@@ -8,7 +8,7 @@ homepage = "https://github.com/OpenByteDev/doi2bib"
 documentation = "https://docs.rs/doi2bib"
 license = "MIT"
 authors = ["OpenByte <development.openbyte@gmail.com>"]
-edition = "2021"
+edition = "2024"
 categories = []
 keywords = ["doi", "bibtex", "bibliography", "biblatex"]
 

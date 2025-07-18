@@ -1,6 +1,6 @@
-use std::sync::LazyLock;
 use regex::Regex;
 use reqwest::header;
+use std::sync::LazyLock;
 
 static DOI_PATTERN: LazyLock<Regex> =
     LazyLock::new(|| Regex::new("\\b(10[.][0-9]{3,}(?:[.][0-9]+)*/\\S+)\\b").unwrap());

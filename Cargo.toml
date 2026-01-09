@@ -13,9 +13,9 @@ categories = []
 keywords = ["doi", "bibtex", "bibliography", "biblatex"]
 
 [dependencies]
-reqwest = "0.12"
-regex = "1.11"
+reqwest = "0.13"
+regex = "1.12"
 
 [dev-dependencies]
-tokio = { version = "1.46", features = ["macros", "rt"] }
-biblatex = "0.10"
+tokio = { version = "1.48", features = ["macros", "rt"] }
+biblatex = "0.11"
